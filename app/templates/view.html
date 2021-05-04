@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+{% block content %}
+<table class="table table-dark table-striped">
+
+<div class="card" class="m-5 p-2">
+    <h5 class="card-title">{{ biostats.Name}}</h5>
+
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">Sex: {{ biostats.Sex }}</li>
+        <li class="list-group-item">Age: {{ biostats.Age }}</li>
+        <li class="list-group-item">Height_in: {{ biostats.Height_in }}</li>
+        <li class="list-group-item">Weight: {{ biostats.Weight_lbs }}</li>
+    </ul>
+    <div class="card-body">
+        <a href="/edit/{{biostats.id}}" class="card-link btn btn-primary">edit</a>
+    </div>
+</div>
+<form action="/delete/{{biostats.id}}" method="post"><button type="submit" class="btn btn-danger">Delete</button></form>
+</table>
+
+{% endblock %}
