@@ -4,7 +4,7 @@ use bioData;
 CREATE TABLE IF NOT EXISTS biostats
 (
     `id`         int auto_increment,
-    `Name`       VARCHAR(4) CHARACTER SET utf8,
+    `Name`       VARCHAR(10) CHARACTER SET utf8,
     `Sex`        VARCHAR(10) CHARACTER SET utf8,
     `Age`        INT,
     `Height_in`  INT,
