@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Chart</title>
+</head>
+<body>
+<canvas id="myChart" width="400" height="400"></canvas>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+<script>
+    var ctx = document.getElementById("myChart").getContext('2d');
+    var answers = JSON.parse('{{ answers | safe}}');
+
+    var stuff = [];
+    for (var counter = 0; counter<answers.length; counter++){
+        stuff.push({x: answers[counter].Weight_lbs, y: answers[counter].Height_in});
+    }
+
+    var options = {responsive: true, maintainAspectRatio: false};
+    var myChart = new Chart(ctx, {
+        type: 'scatter',
+        data: {
+            datasets: [{
+                label: 'Weight, Height',
+                data: stuff,
+                showLine: false,
+                borderColor: "blue",
+                backgroundColor: "blue"
+            }]
+        },
+        options: options
+    });
+
+</script>
+</body>
+</html>

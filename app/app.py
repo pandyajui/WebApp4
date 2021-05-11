@@ -19,11 +19,21 @@ mysql.init_app(app)
 @app.route('/', methods=['GET'])
 def index():
     user = {'username': 'BioStats Data'}
+    print("AKSJHD")
     cursor = mysql.get_db().cursor()
     cursor.execute('SELECT * FROM biostats')
     result = cursor.fetchall()
     return render_template('index.html', title='Home', user=user, biostats=result)
 
+
+@app.route('/graph', methods=['GET'])
+def myGraph():
+    cursor = mysql.get_db().cursor()
+    cursor.execute('SELECT Weight_lbs, Height_in FROM biostats')
+    result = cursor.fetchall()
+    result = json.dumps(result)
+    # return str(result)
+    return render_template('graph.html', title='Graph', answers=result)
 
 @app.route('/view/<int:biostats_id>', methods=['GET'])
 def record_view(biostats_id):
@@ -78,6 +88,7 @@ def form_delete_post(biostats_id):
     mysql.get_db().commit()
     return redirect("/", code=302)
 
+#Get the API info
 @app.route('/api/v1/biostats', methods=['GET'])
 def api_browse() -> str:
     cursor = mysql.get_db().cursor()
@@ -87,6 +98,7 @@ def api_browse() -> str:
     resp = Response(json_results, status=200, mimetype='application/json')
     return resp
 
+#Retrieve API info for id
 @app.route('/api/v1/biostats/<int:biostats_id>', methods=['GET'])
 def api_retrieve(biostats_id) -> str:
     cursor = mysql.get_db().cursor()
@@ -96,6 +108,7 @@ def api_retrieve(biostats_id) -> str:
     resp = Response(json_result, status=200, mimetype='application/json')
     return resp
 
+#Edit data for ID
 @app.route('/api/v1/biostats/<int:biostats_id>', methods=['PUT'])
 def api_edit(biostats_id) -> str:
     cursor = mysql.get_db().cursor()
@@ -107,6 +120,7 @@ def api_edit(biostats_id) -> str:
     resp = Response(status=200, mimetype='application/json')
     return resp
 
+#Adding new data
 @app.route('/api/v1/biostats', methods=['POST'])
 def api_add() -> str:
 
@@ -120,6 +134,7 @@ def api_add() -> str:
     resp = Response(status=201, mimetype='application/json')
     return resp
 
+#Deleting data by id
 @app.route('/api/v1/biostats/<int:biostats_id>', methods=['DELETE'])
 def api_delete(biostats_id) -> str:
     cursor = mysql.get_db().cursor()

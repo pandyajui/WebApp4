@@ -7,43 +7,52 @@
     <!-- Bootstrap CSS -->
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+          integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <p class="page-heading" style="text-align: center;padding: 20px;font-size: 40px;">
-    {% if user %}
-    <title>Welcome to {{ user.username }}'s site</title>
-    {% else %}
-    <title>Welcome to My Site!</title>
-    {% endif %}
+        {% if user %}
+            <title>Welcome to {{ user.username }}'s site</title>
+        {% else %}
+            <title>Welcome to My Site!</title>
+        {% endif %}
 
-    <a href="/"  style="font-size: 22px;background: white;font-weight: bold;text-decoration: none;padding: 21px;color: black;border-radius: 15px;">{% if user %}{{ user.username }}'s Homepage{% else %}
-    <title>Welcome to My Homepage</title>
-    {% endif %}</a>
+        <a href="/"
+           style="font-size: 22px;background: white;font-weight: bold;text-decoration: none;padding: 21px;color: black;border-radius: 15px;">
+            {% if user %}{{ user.username }}'s Homepage{% else %}
+                <title>Welcome to My Homepage</title>
+            {% endif %}</a>
         <title>Welcome to My Homepage</title>
-</p>
-<head>
- <body class="bg-image-custom">
+    </p>
+    <head>
+<body class="bg-image-custom">
 <!-- As a heading -->
 
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
 
-  <button aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-target="#navbarNavDropdown" data-toggle="collapse" type="button">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="navbarNavDropdown">
-    <ul class="navbar-nav">
-      <li class="nav-item active">
-        <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item active">
-        <a class="nav-link" href="/biostats/new">Add New Entry<span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item active">
-        <a class="nav-link" href="api/v1/biostats">Biostats API JSON endpoint <span class="sr-only">(current)</span></a>
-      </li>
+    <button aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation"
+            class="navbar-toggler" data-target="#navbarNavDropdown" data-toggle="collapse" type="button">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav">
+            <li class="nav-item active">
+                <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="/biostats/new">Add New Entry<span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="api/v1/biostats">Biostats API JSON endpoint <span
+                        class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="/graph">Graph <span
+                        class="sr-only">(current)</span></a>
+            </li>
 
-    </ul>
-  </div>
+        </ul>
+    </div>
 </nav>
 <main class="container" role="main">
 
